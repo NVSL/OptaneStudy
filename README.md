@@ -18,7 +18,7 @@ Directory | Description
 
 Item | Description
 ---|---
-# CPUs | 2
+CPUs | 2
 CPU | Intel Xeon Platinum 8260 ES (Cascade Lake SP)
 CPUFreq. | 24 Cores at 2.2 Ghz base clock
 CPU L1 | 32 KB i-Cache, 32 KB d-cache
