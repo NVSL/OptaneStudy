@@ -2,9 +2,9 @@
 
 ## Files
 
-* `bandwidth` : Test bandwidth with different strided or random accesses.
-* `allocation.csv` : Test bandwidth with different way allocation method (alloc_type).
-* `flush.csv` : Test bandwidth with sequential accesses with different write and persistent patterns.
+* `bandwidth` : Measure bandwidth with different strided or random accesses.
+* `allocation.csv` : Measure bandwidth by allocating buffers from different DIMMs (alloc_type).
+* `flush.csv` : Measure bandwidth with sequential accesses with different write and persistent patterns.
 
 ## Table fields
 
