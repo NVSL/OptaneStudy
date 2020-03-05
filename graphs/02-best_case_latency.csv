@@ -1,0 +1,5 @@
+,DRAM,DRAM-Err,Optane,Optane-Err
+Read\Sequential,81.4,27.6,169.4,67.6
+Read\Random,101.5,27.6,305.0,27.9
+Write\(ntstore),86.9,6.8,90.4,8.16
+Write\(clwb),57.3,3.7,62.3,5.5

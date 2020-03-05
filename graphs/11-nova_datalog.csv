@@ -1,0 +1,4 @@
+access,XFS-DAX-sync,XFS-DAX,Ext4-DAX-sync,Ext4-DAX,NOVA,NOVA-relaxed,NOVA-datalog
+Overwrite\64B,40.23,2.644,3.27,2.484,8.95,2.89,1.274
+Overwrite\256B,56.834,3.098,3.626,3.029,9.542,3.498,1.467
+Read\4KB,0,1.514,0,1.568,1.362,1.325,1.610

@@ -1,0 +1,4 @@
+access,Ext4-DAX
+WAL\POSIX,120144
+WAL\FLEX,461005
+Persistent\memtable,521479
