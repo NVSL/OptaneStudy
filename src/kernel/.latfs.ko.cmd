@@ -1,1 +1,0 @@
-cmd_/home/ubuntu/lattester/kernel/latfs.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/ubuntu/lattester/kernel/latfs.ko /home/ubuntu/lattester/kernel/latfs.o /home/ubuntu/lattester/kernel/latfs.mod.o ;  true
