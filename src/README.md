@@ -1,10 +1,8 @@
-# Optane 
-
 # LatTester
 
 LatTester is designed to measure memory latency on AEP platfrom.
 
-It consists of two modules, each of them can be mounted on a pmem device (in `fsdax` mode):
+It contains two modules, each of them need to be mounted on a pmem device (in `fsdax` mode):
 
 **LatencyFS:** LatencyFS (LatFS) is the *working area* of the tester. A series of memory accesses will be issued to locations within this area.
 
@@ -55,10 +53,10 @@ Also see macros defined in `kernel/lattester.h`
 
 #### Load modules
 
- `/mount.sh  [DRAM_DEV] [PMEM_DEV]`
+ `/mount.sh  [RepFS] [LatFS]`
 
-- `DRAM_DEV` is an emulated PMem device that stores per-access latency.
-- `PMEM_DEV` is a PMem device used for latency measurement. (LATTester will allocate from CPU #0.)
+- `RepFS` is an emulated PMem device that stores per-access latency.
+- `LatFS` is a PMem device used for latency measurement. (LATTester will allocate from CPU #0.)
 
 #### Usage
 
