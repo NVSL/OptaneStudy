@@ -9,7 +9,7 @@ Directory | Description
 ----------|------------
 [data/](https://github.com/NVSL/OptaneStudy/tree/master/data) | Raw data (in csv format) of the sweep test
 [graphs/](https://github.com/NVSL/OptaneStudy/tree/master/graphs) | Data (in csv format) used in the paper graphs
-[src/](https://github.com/NVSL/OptaneStudy/tree/master/src) | Source code of lattester tool (coming soon)
+[src/](https://github.com/NVSL/OptaneStudy/tree/master/src) | Source code of lattester tool
 
 
 ## Configuration

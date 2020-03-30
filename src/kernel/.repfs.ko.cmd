@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/lattester/kernel/repfs.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/ubuntu/lattester/kernel/repfs.ko /home/ubuntu/lattester/kernel/repfs.o /home/ubuntu/lattester/kernel/repfs.mod.o ;  true

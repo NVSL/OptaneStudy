@@ -1,0 +1,3 @@
+#!/bin/bash
+# aeprun is a wrapper we used to collect system info and logs
+$*

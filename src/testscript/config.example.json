@@ -1,0 +1,13 @@
+{
+  "media": "lpmem",
+  "interleaving": "1",
+  "local": "1",
+  "avgpower": "15000",
+  "peakpower": "20000",
+  "emon": "0",
+  "aepwatch": "1",
+  "fence": "0",
+  "baddata": "0",
+  "prefetching": "0",
+  "rerun": "0"
+}
