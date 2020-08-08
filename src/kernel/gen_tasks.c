@@ -1,4 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0 */
+#include <errno.h>
 #include <stdio.h>
 #include <assert.h>
 #include <stdio.h>
@@ -27,7 +28,11 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	fp = fopen("../testscripts/parsing/tasks.py", "w");
+	fp = fopen("../testscript/parsing/tasks.py", "w");
+	if (!fp)
+	{
+		printf("fopen error %d\n", errno);
+	}
 	fprintf(fp, "#!/usr/bin/python\n");
 
 	if (task == 1)
