@@ -4,6 +4,17 @@ import os
 import struct
 import numpy as np
 
+
+# For Basic Latency Test (task = 1)
+# tasks.py can be created via ./gen_tasks <report_fs> <task_id>
+# Alternatively, defines the following and remove the tasks import
+# tasks = [
+#        'load-fence-64-seq',
+#        'ntload-fence-64-seq',
+#        ...
+# ]
+# dd='dd if=/dev/pmem1 of=/tmp/dump bs=8M skip=1 count=50'
+# ops_count=1048576
 from tasks import *
 
 insane = 1e18  # when rdtscp produces a negative number
