@@ -75,10 +75,10 @@ static int reportfs_fill_super(struct super_block *sb, void *data, int silent) {
   sb->s_fs_info = sbi;
   sbi->sb = sb;
 
-  ret = bdev_dax_supported(sb, PAGE_SIZE);
+  ret = bdev_dax_supported(sb->s_bdev, PAGE_SIZE);
   pr_info("%s: dax_supported = %d; bdev->super=0x%p", __func__, ret,
           sb->s_bdev->bd_super);
-  if (ret) {
+  if (!ret) {
     pr_err("device does not support DAX\n");
     return ret;
   }
@@ -115,7 +115,7 @@ static int reportfs_fill_super(struct super_block *sb, void *data, int silent) {
 
   root->i_ino = 0;
   root->i_sb = sb;
-  root->i_atime = root->i_mtime = root->i_ctime = current_kernel_time();
+  root->i_atime = root->i_mtime = root->i_ctime = ktime_to_timespec64(ktime_get_real());
   inode_init_owner(root, NULL, S_IFDIR);
 
   sb->s_root = d_make_root(root);
