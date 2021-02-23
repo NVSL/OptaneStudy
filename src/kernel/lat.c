@@ -380,7 +380,7 @@ static int latencyfs_fill_super(struct super_block *sb, void *data, int silent)
 	sbi->sb = sb;
 	sbi->rep = rep_sbi;
 
-	ret = bdev_dax_supported(sb, PAGE_SIZE);
+	ret = bdev_dax_supported(sb->s_bdev, PAGE_SIZE);
 	pr_info("%s: dax_supported = %d; bdev->super=0x%p",
 			__func__, ret, sb->s_bdev->bd_super);
 	if (!ret)
