@@ -14,6 +14,7 @@
 #include <linux/kthread.h>
 #include <linux/dax.h>
 #include <linux/delay.h>
+#include <linux/version.h>
 
 #include "lattester.h"
 
@@ -380,10 +381,18 @@ static int latencyfs_fill_super(struct super_block *sb, void *data, int silent)
 	sbi->sb = sb;
 	sbi->rep = rep_sbi;
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 17, 6)
 	ret = bdev_dax_supported(sb, PAGE_SIZE);
+#else
+	ret = bdev_dax_supported(sb->s_bdev, PAGE_SIZE);
+#endif
 	pr_info("%s: dax_supported = %d; bdev->super=0x%p",
 			__func__, ret, sb->s_bdev->bd_super);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 17, 6)
 	if (ret)
+#else
+	if (!ret)
+#endif
 	{
 		pr_err("device does not support DAX\n");
 		return ret;
@@ -423,7 +432,11 @@ static int latencyfs_fill_super(struct super_block *sb, void *data, int silent)
 
 	root->i_ino = 0;
 	root->i_sb = sb;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 20, 0)
 	root->i_atime = root->i_mtime = root->i_ctime = current_kernel_time();
+#else
+	root->i_atime = root->i_mtime = root->i_ctime = ktime_to_timespec64(ktime_get_real());
+#endif
 	inode_init_owner(root, NULL, S_IFDIR);
 
 	sb->s_root = d_make_root(root);
@@ -434,7 +447,11 @@ static int latencyfs_fill_super(struct super_block *sb, void *data, int silent)
 
 	global_sbi = sbi;
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 17, 6)
 	return ret;
+#else
+	return !ret;
+#endif
 }
 
 static struct dentry *latencyfs_mount(struct file_system_type *fs_type,
