@@ -64,7 +64,6 @@ Also see macros defined in `kernel/lattester.h`
 
 ```
 LATTester task=<task> op=<op> [options]
-!! Warning: clwb not supported on current platform.
 Tasks:
         1: Basic Latency Test (not configurable)
         2: Strided Latency Test  [access_size] [stride_size]
